@@ -1,6 +1,7 @@
 import {Component} from "react";
 import WellsMap from "./components/WellsMap";
 import axios from "axios";
+import Header from "./components/Header";
 
 const api = axios.create({
     baseURL: `http://localhost:5000`
@@ -23,6 +24,8 @@ class App extends Component {
     render(){
       return (
             <div>
+                <Header/>
+
                 <div id="mapid">
                     {Object.keys(this.state.wellsData).length > 0 ? <WellsMap wellsData={this.state.wellsData}/>: "Wait a bit, please"}
                 </div>

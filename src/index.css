@@ -12,3 +12,29 @@ code {
     monospace;
 }
 .markercluster-map { height: 90px }
+
+.header{
+  height: 250px;
+  text-align: center;
+}
+
+#mapid{
+  height: 500px
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.centered {
+  flex: 0 0 120px;
+}
+
+.title {
+  font-size: 66px;
+  font-weight: bold;
+}
+

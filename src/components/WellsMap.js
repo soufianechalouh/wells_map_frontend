@@ -8,7 +8,7 @@ const WellsMap = ({ wellsData }) =>{
 
     return (
         <div>
-        <MapContainer center={position} zoom={5} style={{height: "1000px"}} scrollWheelZoom={false}>
+        <MapContainer center={position} zoom={5} id="mapid" scrollWheelZoom={false}>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

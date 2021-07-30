@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import {Component} from "react";
+import WellsMap from "./components/WellsMap";
+import axios from "axios";
+import Header from "./components/Header";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const api = axios.create({
+    baseURL: `http://localhost:5000`
+})
+
+class App extends Component {
+
+    state = {
+        wellsData: {}
+    }
+    constructor() {
+        super();
+        api.get("/data_from_file").then(res => {
+            console.log(res.data["data"])
+            this.setState( {wellsData : res.data["data"]})
+        })
+    }
+
+
+    render(){
+      return (
+            <div>
+                <Header/>
+
+                <div id="mapid">
+                    {Object.keys(this.state.wellsData).length > 0 ? <WellsMap wellsData={this.state.wellsData}/>: "Loading data, please wait"}
+                </div>
+            </div>
+          );
+    }
 }
 
 export default App;

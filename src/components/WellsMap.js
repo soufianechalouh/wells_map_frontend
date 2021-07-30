@@ -23,7 +23,9 @@ const WellsMap = ({ wellsData }) =>{
                             well.geometry.coordinates[0]
                         ]}>
                         <Popup>
-                            {well.properties.PNAME} - ({well.properties.PSTATABB}) <br/> Easily customizable.
+                            - Name : {well.properties.PNAME} <br/>
+                            - State : {well.properties.PSTATABB} <br/>
+                            - Net generation  : {well.properties.PLNGENAN} <br/>
                         </Popup>
                     </Marker>
                 )

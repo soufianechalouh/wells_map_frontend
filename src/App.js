@@ -14,7 +14,7 @@ class App extends Component {
     }
     constructor() {
         super();
-        api.get("/data").then(res => {
+        api.get("/data_from_file").then(res => {
             console.log(res.data["data"])
             this.setState( {wellsData : res.data["data"]})
         })
@@ -27,7 +27,7 @@ class App extends Component {
                 <Header/>
 
                 <div id="mapid">
-                    {Object.keys(this.state.wellsData).length > 0 ? <WellsMap wellsData={this.state.wellsData}/>: "Wait a bit, please"}
+                    {Object.keys(this.state.wellsData).length > 0 ? <WellsMap wellsData={this.state.wellsData}/>: "Loading data, please wait"}
                 </div>
             </div>
           );
